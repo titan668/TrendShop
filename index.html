@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRENDSHOP | Catálogo Completo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #000000;
+      --secondary: #111111;
+      --accent: #e74c3c;
+      --text-dark: #ffffff;
+      --text-light: #ffffff;
+      --name-color: #0ff;
+      --price-color: #f0f;
+      --card-bg: #000000;
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--secondary);
+      color: var(--text-dark);
+    }
+    
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      background-color: var(--primary);
+      color: var(--text-light);
+      text-align: center;
+      border-bottom: 2px solid var(--name-color);
+    }
+    
+    .logo-container {
+      margin-bottom: 1rem;
+    }
+    
+    .logo-text {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--text-light);
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .tagline {
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-top: 0.5rem;
+      color: rgba(255,255,255,0.8);
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 1rem;
+      background-color: var(--primary);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-bottom: 1px solid #333;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    nav a {
+      margin: 0.5rem 1rem;
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    nav a:hover {
+      color: var(--name-color);
+    }
+    
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .producto {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid #333;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .producto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 255, 255, 0.1);
+      border-color: var(--name-color);
+    }
+    
+    .producto-img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+    
+    .producto h3 {
+      margin: 0 0 0.5rem;
+      color: var(--name-color);
+      font-size: 1.2rem;
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    .producto p {
+      margin: 0.5rem 0;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    
+    .precio {
+      font-weight: bold;
+      color: var(--price-color);
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+    
+    .categoria-titulo {
+      text-align: center;
+      margin: 3rem 0 1.5rem;
+      color: var(--name-color);
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .categoria-titulo:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background-color: var(--price-color);
+      margin: 0.5rem auto 0;
+    }
+    
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      background-color: var(--primary);
+      color: var(--text-light);
+      font-size: 0.9rem;
+      border-top: 2px solid var(--price-color);
+    }
+    
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .footer-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-light);
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .footer-contact {
+      margin: 1.5rem 0;
+      line-height: 1.6;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .social-links a {
+      color: var(--text-light);
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+    
+    .social-links a:hover {
+      color: var(--name-color);
+    }
+    
+    @media (max-width: 768px) {
+      .logo-text {
+        font-size: 2rem;
+      }
+      
+      .productos {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        padding: 1rem;
+      }
+      
+      nav a {
+        font-size: 0.8rem;
+        margin: 0.5rem;
+      }
+      
+      .producto-img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .logo-text {
+        font-size: 1.8rem;
+      }
+      
+      .tagline {
+        font-size: 1rem;
+      }
+      
+      .productos {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <div class="logo-text">TRENDSHOP</div>
+    </div>
+    <p class="tagline">Nos enfocamos en ofrecer piezas únicas, donde el diseño y la calidad se encuentran para acompañarte todos los días.</p>
+  </header>
+
+  <nav>
+    <a href="#auriculares">Auriculares</a>
+    <a href="#cables">Cables</a>
+    <a href="#cargadores">Cargadores</a>
+    <a href="#almacenamiento">Almacenamiento</a>
+    <a href="#telefono">Para el Teléfono</a>
+    <a href="#parlantes">Parlantes</a>
+    <a href="#smartwatches">Smartwatches</a>
+    <a href="#hogar">Hogar</a>
+    <a href="#iluminacion">Iluminación</a>
+    <a href="#varios">Varios</a>
+  </nav>
+
+  <!-- Sección Auriculares -->
+  <h2 class="categoria-titulo" id="auriculares">Auriculares</h2>
+  <section class="productos">
+    <div class="producto">
+      <img src="Foxconn-Lightning.png" alt="Foxconn Lightning" class="producto-img">
+      <h3>Foxconn Lightning</h3>
+      <p>iPhone - Calidad Original</p>
+      <p class="precio">$12</p>
+    </div>
+    <div class="producto">
+      <img src="buds2.pn" alt="Air Pods Pro" class="producto-img">
+      <h3>Air Pods Pro</h3>
+      <p>Wireless - Bluetooth</p>
+      <p class="precio">$25</p>
+    </div>
+    <div class="producto">
+      <img src="SamsungBudsPro.png" alt="Samsung Buds Pro" class="producto-img">
+      <h3>Samsung Buds Pro</h3>
+      <p>Negro - Lila - Gris</p>
+      <p class="precio">$16.75</p>
+    </div>
+    <div class="producto">
+      <img src="samsung_buds.jpg" alt="Samsung AKG" class="producto-img">
+      <h3>Samsung AKG</h3>
+      <p>Extra Bass - En bolsita</p>
+      <p class="precio">$1.50</p>
+    </div>
+    <div class="producto">
+      <img src="E7S.jpg" alt="E7S" class="producto-img">
+      <h3>E7S</h3>
+      <p>in Ear - Bluetooth - Wireless 5,3</p>
+      <p class="precio">$6</p>
+    </div>
+    <div class="producto">
+      <img src="Lightning-Iphone.jpg" alt="Lightning - IPhone" class="producto-img">
+      <h3>Lightning - IPhone</h3>
+      <p>Auriculares con cable</p>
+      <p class="precio">$6.90</p>
+    </div>
+    <div class="producto">
+      <img src="Samsung.jpg" alt="Samsung" class="producto-img">
+      <h3>Samsung</h3>
+      <p>Auriculares con cable</p>
+      <p class="precio">$1.80</p>
+    </div>
+    <div class="producto">
+      <img src="samsung_buds.jpg" alt="E6S Mipods" class="producto-img">
+      <h3>E6S Mipods</h3>
+      <p>Bluetooth - In Ear</p>
+      <p class="precio">$5.50</p>
+    </div>
+    <div class="producto">
+      <img src="AirdotsPro.jpg" alt="Airdots Pro" class="producto-img">
+      <h3>Airdots Pro</h3>
+      <p>Wireless - In Ear</p>
+      <p class="precio">$10</p>
+    </div>
+    <div class="producto">
+      <img src="samsung_buds.jpg" alt="Earpods - USB C" class="producto-img">
+      <h3>Earpods - USB C</h3>
+      <p>Auriculares in Ear</p>
+      <p class="precio">$16</p>
+    </div>
+    <div class="producto">
+      <img src="samsung_buds.jpg" alt="P47 Wireless" class="producto-img">
+      <h3>P47 Wireless</h3>
+      <p>Auriculares in Ear</p>
+      <p class="precio">$6.50</p>
+    </div>
+    <div class="producto">
+      <img src="samsung_buds.jpg" alt="Dinax Sound" class="producto-img">
+      <h3>Dinax Sound</h3>
+      <p>Auriculares in Ear</p>
+      <p class="precio">$8.80</p>
+    </div>
+    <div class="producto">
+      <img src="samsung_buds.jpg" alt="Auriculares GT04" class="producto-img">
+      <h3>Auriculares GT04</h3>
+      <p>Auriculares Bluetooth in Ear</p>
+      <p class="precio">$10.50</p>
+    </div>
+    <div class="producto">
+      <img src="samsung_buds.jpg" alt="Auriculares YW07" class="producto-img">
+      <h3>Auriculares YW07</h3>
+      <p>Auriculares Bluetooth in Ear</p>
+      <p class="precio">$24</p>
+    </div>
+    <div class="producto">
+      <img src="samsung_buds.jpg" alt="JBL Soundgear Sense" class="producto-img">
+      <h3>JBL Soundgear Sense</h3>
+      <p>Auriculares Bluetooth in Ear</p>
+      <p class="precio">$25</p>
+    </div>
+    <div class="producto">
+      <img src="samsung_buds.jpg" alt="Sports U100" class="producto-img">
+      <h3>Sports U100</h3>
+      <p>Music U100 - Wireless - Extra Bass</p>
+      <p class="precio">$12</p>
+    </div>
+    <div class="producto">
+      <img src="samsung_buds.jpg" alt="STN P9 - Bluetooth" class="producto-img">
+      <h3>STN P9 - Bluetooth</h3>
+      <p>Batería de Litio - Tarjeta SD - Radio</p>
+      <p class="precio">$15</p>
+    </div>
+    <div class="producto">
+      <img src="samsung_buds.jpg" alt="Lenovo QT81" class="producto-img">
+      <h3>Lenovo QT81</h3>
+      <p>Wireless - TWS - Bluetooth 5.1 - Resistente al agua</p>
+      <p class="precio">$20</p>
+    </div>
+    <div class="producto">
+      <img src="samsung_buds.jpg" alt="F9" class="producto-img">
+      <h3>F9</h3>
+      <p>Wireless - Bluetooth</p>
+      <p class="precio">$6</p>
+    </div>
+    <div class="producto">
+      <img src="samsung_buds.jpg" alt="Airdots Pro 3" class="producto-img">
+      <h3>Airdots Pro 3</h3>
+      <p>Wireless - Bluetooth</p>
+      <p class="precio">$10</p>
+    </div>
+    <div class="producto">
+      <img src="samsung_buds.jpg" alt="Samsung Earphones" class="producto-img">
+      <h3>Samsung Earphones</h3>
+      <p>Samsung In Ear</p>
+      <p class="precio">$4.20</p>
+    </div>
+    <div class="producto">
+      <img src="samsung_buds.jpg" alt="Earbuds Basic" class="producto-img">
+      <h3>Earbuds Basic</h3>
+      <p>Mi True Basic</p>
+      <p class="precio">$10</p>
+    </div>
+    <div class="producto">
+      <img src="samsung_buds.jpg" alt="Earpods" class="producto-img">
+      <h3>Earpods</h3>
+      <p>Lightning</p>
+      <p class="precio">$10</p>
+    </div>
+    <!-- Más auriculares... -->
+  </section>
+
+  <!-- Sección Cables -->
+  <h2 class="categoria-titulo" id="cables">Cables</h2>
+  <section class="productos">
+    <div class="producto">
+      <img src="cable_lightning.jpg" alt="USB A Lightning" class="producto-img">
+      <h3>USB A Lightning</h3>
+      <p>Cable iPhone</p>
+      <p class="precio">$2.50</p>
+    </div>
+    <div class="producto">
+      <img src="cable_tipoc.jpg" alt="Lightning a Tipo C" class="producto-img">
+      <h3>Lightning a Tipo C</h3>
+      <p>Cable Original</p>
+      <p class="precio">$2.50</p>
+    </div>
+    <!-- Más cables... -->
+  </section>
+
+  <!-- Sección Cargadores -->
+  <h2 class="categoria-titulo" id="cargadores">Cargadores</h2>
+  <section class="productos">
+    <div class="producto">
+      <img src="cargador_iphone.jpg" alt="iPhone USB-C 20W" class="producto-img">
+      <h3>iPhone USB-C 20W</h3>
+      <p>Power Adapter</p>
+      <p class="precio">$11</p>
+    </div>
+    <div class="producto">
+      <img src="cargador_motorola.jpg" alt="Motorola Turbo" class="producto-img">
+      <h3>Motorola Turbo</h3>
+      <p>Turbo Power - 15w</p>
+      <p class="precio">$8</p>
+    </div>
+    <!-- Más cargadores... -->
+  </section>
+
+  <!-- Sección Almacenamiento -->
+  <h2 class="categoria-titulo" id="almacenamiento">Almacenamiento</h2>
+  <section class="productos">
+    <div class="producto">
+      <img src="microsd_32gb.jpg" alt="Micro SD 32GB" class="producto-img">
+      <h3>Micro SD 32GB</h3>
+      <p>Samsung</p>
+      <p class="precio">$7</p>
+    </div>
+    <div class="producto">
+      <img src="pendrive_64gb.jpg" alt="Pendrive 64GB" class="producto-img">
+      <h3>Pendrive 64GB</h3>
+      <p>Samsung - USB 3.0</p>
+      <p class="precio">$10</p>
+    </div>
+    <!-- Más almacenamiento... -->
+  </section>
+
+  <!-- Sección Para el Teléfono -->
+  <h2 class="categoria-titulo" id="telefono">Para el Teléfono</h2>
+  <section class="productos">
+    <div class="producto">
+      <img src="protector_hidrogel.jpg" alt="Protector Hidrogel HD" class="producto-img">
+      <h3>Protector Hidrogel HD</h3>
+      <p>Protector de pantalla</p>
+      <p class="precio">$1.20</p>
+    </div>
+    <div class="producto">
+      <img src="protector_lente.jpg" alt="Protector Lente" class="producto-img">
+      <h3>Protector Lente</h3>
+      <p>Protege el lente de la cámara</p>
+      <p class="precio">$2</p>
+    </div>
+    <!-- Más accesorios para teléfono... -->
+  </section>
+
+  <!-- Sección Parlantes -->
+  <h2 class="categoria-titulo" id="parlantes">Parlantes</h2>
+  <section class="productos">
+    <div class="producto">
+      <img src="parlante_abs3107.jpg" alt="ABS-3107" class="producto-img">
+      <h3>ABS-3107</h3>
+      <p>Bluetooth - Radio - Micrófono</p>
+      <p class="precio">$7</p>
+    </div>
+    <div class="producto">
+      <img src="parlante_zqs8151.jpg" alt="ZQS 8151" class="producto-img">
+      <h3>ZQS 8151</h3>
+      <p>8 pulgadas - Bluetooth - 16W</p>
+      <p class="precio">$20</p>
+    </div>
+    <!-- Más parlantes... -->
+  </section>
+
+  <!-- Sección Smartwatches -->
+  <h2 class="categoria-titulo" id="smartwatches">Smartwatches</h2>
+  <section class="productos">
+    <div class="producto">
+      <img src="smartwatch_y10.jpg" alt="Smartwatch Y10 Ultra" class="producto-img">
+      <h3>Smartwatch Y10 Ultra</h3>
+      <p>Viene con cuatro mallas</p>
+      <p class="precio">$22</p>
+    </div>
+    <div class="producto">
+      <img src="smartband_6.jpg" alt="Smartband 6" class="producto-img">
+      <h3>Smartband 6</h3>
+      <p>Pulsera inteligente</p>
+      <p class="precio">$8</p>
+    </div>
+    <!-- Más smartwatches... -->
+  </section>
+
+  <!-- Sección Hogar -->
+  <h2 class="categoria-titulo" id="hogar">Hogar</h2>
+  <section class="productos">
+    <div class="producto">
+      <img src="cortadora_barba.jpg" alt="Cortadora de Barba" class="producto-img">
+      <h3>Cortadora de Barba</h3>
+      <p>Pantalla LED - Incluye accesorios</p>
+      <p class="precio">$12</p>
+    </div>
+    <div class="producto">
+      <img src="freidora_aire.jpg" alt="Freidora de Aire" class="producto-img">
+      <h3>Freidora de Aire</h3>
+      <p>5 Litros</p>
+      <p class="precio">$82</p>
+    </div>
+    <!-- Más productos para el hogar... -->
+  </section>
+
+  <!-- Sección Iluminación -->
+  <h2 class="categoria-titulo" id="iluminacion">Iluminación</h2>
+  <section class="productos">
+    <div class="producto">
+      <img src="aro_luz.jpg" alt="Aro de Luz LED" class="producto-img">
+      <h3>Aro de Luz LED</h3>
+      <p>Luz Cálida y fría</p>
+      <p class="precio">$8</p>
+    </div>
+    <div class="producto">
+      <img src="lampara_luna.jpg" alt="Lámpara Luna" class="producto-img">
+      <h3>Lámpara Luna</h3>
+      <p>Con Humidificador</p>
+      <p class="precio">$12</p>
+    </div>
+    <!-- Más iluminación... -->
+  </section>
+
+  <!-- Sección Varios -->
+  <h2 class="categoria-titulo" id="varios">Varios</h2>
+  <section class="productos">
+    <div class="producto">
+      <img src="silla_gamer.jpg" alt="Silla Gamer Dinax" class="producto-img">
+      <h3>Silla Gamer Dinax</h3>
+      <p>XTREME</p>
+      <p class="precio">$130</p>
+    </div>
+    <div class="producto">
+      <img src="joystick_ps4.jpg" alt="Joystick PS4" class="producto-img">
+      <h3>Joystick PS4</h3>
+      <p>Control inalámbrico</p>
+      <p class="precio">$22</p>
+    </div>
+    <!-- Más productos varios... -->
+  </section>
+
+  <a class="whatsapp" href="https://wa.me/TUNUMERO" target="_blank">
+    <span>📲</span> Consultar por WhatsApp
+  </a>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">TRENDSHOP</div>
+      <p class="tagline">With a focus on quality and design</p>
+      
+      <div class="footer-contact">
+        <p>© 2025 TRENDSHOP - KF_Tech. Todos los derechos reservados.</p>
+        <p>Dirección: 3 de Febrero 3022 (casi La Rioja)</p>
+        <p>Horario: Lunes a Viernes de 10 a 19 horas</p>
+      </div>
+      
+      <div class="social-links">
+        <a href="#" aria-label="Instagram">📸</a>
+        <a href="#" aria-label="Facebook">👍</a>
+        <a href="#" aria-label="Twitter">🐦</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
